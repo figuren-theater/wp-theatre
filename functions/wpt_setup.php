@@ -218,10 +218,18 @@
 			 * Filter the post type args for productions.
 			 * 
 			 * @since	0.15.9
+             * @since   1.0.0 Deprecated in favor of the existing core filter 'register_post_type_args'
+             * 
 			 * @param	$post_type_args	The post type args.
 			 */
-			$post_type_args = apply_filters('wpt/setup/post_type/args/?post_type='.WPT_Production::post_type_name, $post_type_args);
-
+            $post_type_args = apply_filters_deprecated(
+                'wpt/setup/post_type/args/?post_type='.WPT_Production::post_type_name,
+                array( $post_type_args ),
+                '1.0.0',
+                'register_post_type_args',
+                'This filter will be removed with the next release after 01.09.2024. Please make sure to use the \'register_post_type_args\' filter!'
+            );
+			
 			register_post_type( WPT_Production::post_type_name, $post_type_args );
 			
 			$post_type_args = array(
