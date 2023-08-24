@@ -219,7 +219,7 @@
 			 * 
 			 * @since	0.15.9
              * @since   1.0.0 Deprecated in favor of the existing core filter 'register_post_type_args'
-             * 
+			 * 
 			 * @param	$post_type_args	The post type args.
 			 */
             $post_type_args = apply_filters_deprecated(
@@ -239,45 +239,61 @@
 					'new_item' => __('New event','theatre'),
 					'add_new_item' => __('Add new event','theatre'),
 					'edit_item' => __('Edit event','theatre')
-
+					
 				),
 				'public' => true,
 				'has_archive' => true,
 				'show_in_menu'  => false,
 				'supports' => array(''),
-	  			'taxonomies' => array('category','post_tag'),
+				'taxonomies' => array('category','post_tag'),
 				'show_in_nav_menus'=> false,
 			);
-
+			
 			/**
 			 * Filter the post type args for events.
 			 * 
 			 * @since	0.15.9
+			 * @since   1.0.0 Deprecated in favor of the existing core filter 'register_post_type_args'
+			 * 
 			 * @param	$post_type_args	The post type args.
 			 */
-			$post_type_args = apply_filters('wpt/setup/post_type/args/?post_type='.WPT_Event::post_type_name, $post_type_args);
+			$post_type_args = apply_filters_deprecated(
+				'wpt/setup/post_type/args/?post_type='.WPT_Event::post_type_name,
+                array( $post_type_args ),
+                '1.0.0',
+                'register_post_type_args',
+                'This filter will be removed with the next release after 01.09.2024. Please make sure to use the \'register_post_type_args\' filter!'
+            );
 
 			register_post_type( WPT_Event::post_type_name, $post_type_args );
 			
 			$post_type_args = array(
-					'labels' => array(
-						'name' => __( 'Seasons','theatre'),
-						'singular_name' => __( 'Season','theatre')
-					),
-					'public' => true,
+				'labels' => array(
+					'name' => __( 'Seasons','theatre'),
+					'singular_name' => __( 'Season','theatre')
+				),
+				'public' => true,
 					'has_archive' => true,
 					'supports' => array('title','editor'),
 					'show_in_menu'  => 'theater-events',
 					'exclude_from_search' => true,
-			);
-
+				);
+				
 			/**
 			 * Filter the post type args for seasons.
 			 * 
 			 * @since	0.15.9
+			 * @since   1.0.0 Deprecated in favor of the existing core filter 'register_post_type_args'
+			 * 
 			 * @param	$post_type_args	The post type args.
 			 */
-			$post_type_args = apply_filters('wpt/setup/post_type/args/?post_type=wp_theatre_season', $post_type_args);
+			$post_type_args = apply_filters_deprecated(
+				'wpt/setup/post_type/args/?post_type=wp_theatre_season',
+                array( $post_type_args ),
+                '1.0.0',
+                'register_post_type_args',
+                'This filter will be removed with the next release after 01.09.2024. Please make sure to use the \'register_post_type_args\' filter!'
+            );
 
 			register_post_type( 'wp_theatre_season', $post_type_args );
 
