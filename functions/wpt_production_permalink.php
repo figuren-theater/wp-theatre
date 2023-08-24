@@ -44,7 +44,10 @@ class WPT_Production_Permalink {
 		 * Filter the default production permalink base.
 		 *
 		 * @since 	0.12
-		 * @param	string	$default	The default production permalink base.
+		 * @hook    wpt/production/permalink/base/default
+		 * 
+		 * @param	{string}	$default	The default production permalink base.
+		 * @return	{string}	$default	The default production permalink base.
 		 */
 		$default = apply_filters( 'wpt/production/permalink/base/default', $default );
 
@@ -59,12 +62,15 @@ class WPT_Production_Permalink {
 	 */
 	public function get_base() {
 		$base = empty( $this->options['base'] ) ? $this->get_base_default() : $this->options['base'];
-
+		
 		/**
 		 * Filter the production permalink base.
 		 *
 		 * @since	0.12
-		 * @param	string	$base	The production permalink base.
+		 * @hook    wpt/production/permalink/base
+		 * 
+		 * @param	{string}	$base	The production permalink base.
+		 * @return	{string}	$base	The production permalink base.
 		 */
 		$base = apply_filters( 'wpt/production/permalink/base', $base );
 

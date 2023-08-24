@@ -221,6 +221,14 @@ class WP_Theatre {
  	 * @return void
  	 */
  	function wpt_loaded() {
+		/**
+		 * Safely load plugins that depend on Theater.
+		 * 
+		 * @see https://github.com/slimndap/wp-theatre-example-extension
+		 *
+		 * @since 0.???.0
+		 * @hook wpt_loaded
+		 */
 		do_action('wpt_loaded');
 	}
 
