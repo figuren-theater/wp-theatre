@@ -8,7 +8,7 @@ class Theater_Gutenberg {
 	
 	function __construct() {
 		
-		add_filter( 'wpt/setup/post_type/args/?post_type=wp_theatre_prod', array( $this, 'add_gutenberg_support' ) );
+		add_filter( 'register_post_type_args', array( $this, 'add_gutenberg_support' ), 10, 2 );
 		add_filter( 'wpt/event_editor/form/html', array( $this, 'add_post_id_field' ), 10, 3 );
 		
 	}
@@ -53,10 +53,18 @@ class Theater_Gutenberg {
 	 * Adds Gutenberg support to events in the Theater for WordPress plugin.
 	 * 
 	 * @since	0.18
+	 * @since   1.0.0   Changed calling filter hook to 'register_post_type_args'. Introduced $post_type parameter.
+	 *
 	 * @param 	array	$post_type_args	The current settings for the events post type (wp_theatre_prod).
+	 * @param   string  $post_type      Post type key.
+	 *
 	 * @return 	array					The new settings for the events post type.
 	 */
-	function add_gutenberg_support( $post_type_args ) {
+	function add_gutenberg_support( array $post_type_args, string $post_type ) {
+		
+		if (WPT_Production::post_type_name !== $post_type ) {
+			return $post_type_args;
+		}
 		
 		if ( !$this->support_gutenberg() ) {
 			return $post_type_args;
