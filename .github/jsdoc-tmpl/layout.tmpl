@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title><?js= title ?> - 10up Distributor Developer Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+
+	<!-- link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:300,400|Playfair+Display:900&display=swap" rel="stylesheet" --> 
+    <link type="text/css" rel="stylesheet" href="styles-10up.css">
+</head>
+
+<body<?js if (title === 'Home') { ?> class="home"<?js } ?>>
+
+<div id="main">
+
+	<?js if (title !== 'Home') { ?>
+    <h1 class="page-title"><?js= title ?></h1>
+	<?js } ?>
+
+    <?js= content ?>
+
+    <footer>
+		<a href="https://wp.theater">Theater for WordPress</a> &bull;
+		<a href="https://wordpress.org/plugins/theatre">on WordPress</a> &bull;
+		<a href="https://github.com/slimndap/wp-theatre">on GitHub</a> &bull;
+	</footer>
+
+</div>
+
+<!-- modified nav by 10up
+<nav>
+	<?js
+		// Re-order tutorials to the top of the nav. The nav is hard-coded in wp-hooksdoc.
+		const indexOfFirstSubHeading = this.nav.indexOf('<h3');
+		const indexOfTutorial = this.nav.indexOf('<h3>Tutorials');
+		const headingLink = this.nav.substr(0, indexOfFirstSubHeading);
+		const hooksSection = this.nav.substr(indexOfFirstSubHeading, indexOfTutorial - indexOfFirstSubHeading);
+		const tutorialSection = this.nav.substr(indexOfTutorial);
+	?>
+	<?js= headingLink + tutorialSection + hooksSection ?>
+</nav>
+-->
+<!-- original nav by wp-hookdocs -->
+<nav>
+    <?js= this.nav ?>
+</nav>
+
+<br class="clear">
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

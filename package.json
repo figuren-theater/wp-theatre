@@ -1,0 +1,33 @@
+{
+  "name": "theatre",
+  "version": "1.0.0",
+  "description": "Manage and publish events for your theater, live venue, cinema, club or festival.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:docs": "rm -rf docs/ && jsdoc -c jsdoc-conf.json"
+  },
+  "devDependencies": {
+    "jsdoc": "^4.0.2",
+    "taffydb": "^2.7.3",
+    "wp-hookdoc": "^0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figuren-theater/wp-theatre.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theater",
+    "events"
+  ],
+  "author": "Jeroen Schmit (& Carsten Bach)",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/figuren-theater/wp-theatre/issues"
+  },
+  "homepage": "https://github.com/figuren-theater/wp-theatre#readme"
+}

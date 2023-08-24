@@ -2,3 +2,5 @@ config.codekit
 *.iml
 .idea
 apidocs
+docs/*
+node_modules

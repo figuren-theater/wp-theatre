@@ -1,0 +1,31 @@
+{
+    "opts": {
+        "destination": "docs",
+        "template": "node_modules/wp-hookdoc/template",
+        "recurse": true,
+        "readme": ".github/jsdoc-tmpl/README.md",
+        "encoding": "utf8"
+    },
+    "source": {
+      "include": [ 
+        "./functions",
+        "./integrations",
+        "./theater.php"
+      ],
+      "includePattern": ".+\\.(php)?$"
+    },
+    "plugins": [
+      "node_modules/wp-hookdoc/plugin",
+      "plugins/markdown"
+    ],
+    "templates":  {
+      "default": {
+        "layoutFile": "./.github/jsdoc-tmpl/layout.tmpl",
+        "staticFiles": {
+          "include": [
+            "./.github/jsdoc-tmpl/static"
+          ]
+        }
+      }
+    }
+  }
